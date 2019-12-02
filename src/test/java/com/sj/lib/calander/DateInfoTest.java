@@ -59,11 +59,12 @@ public class DateInfoTest {
         HolidayCalendarByGov holidayCalendarByGov = new HolidayCalendarByGov2019();
         holidayCalendarByGov.adjustCalendar();
 
-        Calendar calendar = CalendarUtils.genDate(2019, 1, 1);
-        Calendar lastDay = CalendarUtils.genDate(2020, 1, 1);
+        Calendar calendar = holidayCalendarByGov.getFirstDay();
+        Calendar lastDay = holidayCalendarByGov.getLastDay();
+        lastDay.add(Calendar.DAY_OF_YEAR, 1);
 
         while (calendar.before(lastDay)) {
-            Boolean isWorkDay = holidayCalendarByGov.dateCategoryMap.get(calendar);
+            Boolean isWorkDay = holidayCalendarByGov.dateInfoMap.get(calendar);
             if (isWorkDay != null) {
                 dateInfoList.add(new DateInfo(calendar, isWorkDay));
             } else {
@@ -82,7 +83,7 @@ public class DateInfoTest {
         Calendar calendar = CalendarUtils.genDate(2019, 1, 1);
 //        CalendarUtils.dump(calendar);
 
-        Boolean isWorkDay = holidayCalendarByGov.dateCategoryMap.get(calendar);
+        Boolean isWorkDay = holidayCalendarByGov.dateInfoMap.get(calendar);
         assertNotNull(isWorkDay);
 
         DateInfo dateInfo = new DateInfo(calendar, isWorkDay);

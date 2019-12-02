@@ -4,9 +4,7 @@ import org.junit.Test;
 
 import java.util.Calendar;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 public class HolidayByGovTest {
 
@@ -33,7 +31,12 @@ public class HolidayByGovTest {
         Calendar calendar = CalendarUtils.genDate(2019, 1, 1);
 //        CalendarUtils.dump(calendar);
 
-        Boolean isWorkDay = holidayByGov.dateCategoryMap.get(calendar);
+        Boolean isWorkDay = holidayByGov.dateInfoMap.get(calendar);
         assertNotNull(isWorkDay);
+    }
+
+    @Test
+    public void testcase_CalendarByGov() throws Exception {
+        holidayByGov.dump();
     }
 }

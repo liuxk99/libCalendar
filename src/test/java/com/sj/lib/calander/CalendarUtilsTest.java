@@ -11,7 +11,7 @@ import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 public class CalendarUtilsTest {
-    final
+
     @Before
     public void setUp() throws Exception {
     }
