@@ -18,8 +18,9 @@ public class CalendarUtils {
         return genDate(calendar, year, month, day);
     }
 
-    static Calendar genDate(Calendar calendar, int year, int month, int day) {
+    private static Calendar genDate(Calendar calendar, int year, int month, int day) {
         Calendar cal = (Calendar) calendar.clone();
+        cal.clear();
         cal.set(year, month - 1, day);
         return cal;
     }

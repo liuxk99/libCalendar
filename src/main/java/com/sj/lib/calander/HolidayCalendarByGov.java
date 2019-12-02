@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class HolidayByGov {
+public abstract class HolidayCalendarByGov {
     protected Map<Calendar, Boolean> dateCategoryMap = new HashMap<Calendar, Boolean>();
 
     abstract void adjustCalendar();

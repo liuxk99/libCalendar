@@ -1,16 +1,27 @@
 package com.sj.lib.calander;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
 
 import java.util.Calendar;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
-public class HolidayByGovTest extends TestCase {
+public class HolidayByGovTest {
 
-    private HolidayByGov2019 holidayByGov;
+    private HolidayCalendarByGov2019 holidayByGov;
+
+    @org.junit.Before
+    public void setUp() throws Exception {
+        holidayByGov = new HolidayCalendarByGov2019();
+        holidayByGov.adjustCalendar();
+//        holidayByGov.dump();
+    }
+
+    @org.junit.After
+    public void tearDown() throws Exception {
+    }
 
     @Test
     public void adjustCalendar() {
@@ -20,34 +31,9 @@ public class HolidayByGovTest extends TestCase {
     @Test
     public void testcase_Maps() {
         Calendar calendar = CalendarUtils.genDate(2019, 1, 1);
-        CalendarUtils.dump(calendar);
-        assertTrue(holidayByGov.dateCategoryMap.containsKey(calendar));
+//        CalendarUtils.dump(calendar);
 
         Boolean isWorkDay = holidayByGov.dateCategoryMap.get(calendar);
         assertNotNull(isWorkDay);
-    }
-
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-
-        holidayByGov = new HolidayByGov2019();
-        holidayByGov.adjustCalendar();
-        holidayByGov.dump();
-    }
-
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    @Test
-    public void testcase_Calendars() throws Exception {
-        Calendar cal1 = CalendarUtils.genDate(2019, 1, 1);
-        Calendar cal2 = CalendarUtils.genDate(2019, 1, 1);
-        assertEquals(cal1, cal2);
-
-        CalendarUtils.dump(cal1);
-        CalendarUtils.dump(cal2);
     }
 }

@@ -5,6 +5,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Calendar;
+import java.util.Map;
+
+import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class CalendarUtilsTest {
     final
@@ -36,5 +40,17 @@ public class CalendarUtilsTest {
             System.out.println("day of week: " + dayOfWeek);
         }
         System.out.println("<- dumpDayOfWeek()");
+    }
+
+    @Test
+    public void testcase_genDate() throws Exception {
+        Calendar cal1 = CalendarUtils.genDate(2019, 1, 1);
+        Calendar cal2 = CalendarUtils.genDate(2019, 1, 1);
+//        boolean res = cal1.getTimeInMillis() == cal2.getTimeInMillis();
+//        System.out.println(res);
+        CalendarUtils.dump(cal1);
+        CalendarUtils.dump(cal2);
+
+        assertEquals(cal1, cal2);
     }
 }
