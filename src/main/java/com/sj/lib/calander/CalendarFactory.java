@@ -8,11 +8,14 @@ import java.util.Map;
 
 public class CalendarFactory {
     private static CalendarFactory mInstance;
+    public Map<Calendar, Boolean> calendarMap = new HashMap<Calendar, Boolean>();
 
     public static CalendarFactory getInstance() {
         if (mInstance == null) {
             mInstance = new CalendarFactory();
         }
+        mInstance.generateCalendarMap();
+
         return mInstance;
     }
 
@@ -22,12 +25,11 @@ public class CalendarFactory {
         HolidayCalendarByGov cal = new HolidayCalendarByGov2019();
         calendarByGovList.add(cal);
 
-        Map<Calendar, Boolean> map = new HashMap<Calendar, Boolean>();
         for (HolidayCalendarByGov calendarByGov : calendarByGovList) {
             calendarByGov.adjustCalendar();
-            map.putAll(calendarByGov.dateInfoMap);
+            calendarMap.putAll(calendarByGov.dateInfoMap);
         }
 
-        return map;
+        return calendarMap;
     }
 }
