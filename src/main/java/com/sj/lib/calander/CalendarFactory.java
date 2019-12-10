@@ -10,11 +10,14 @@ public class CalendarFactory {
     private static CalendarFactory mInstance;
     public Map<Calendar, Boolean> calendarMap = new HashMap<Calendar, Boolean>();
 
+    public CalendarFactory() {
+        generateCalendarMap();
+    }
+
     public static CalendarFactory getInstance() {
         if (mInstance == null) {
             mInstance = new CalendarFactory();
         }
-        mInstance.generateCalendarMap();
 
         return mInstance;
     }
