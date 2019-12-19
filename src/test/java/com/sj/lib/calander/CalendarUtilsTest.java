@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Map;
 
 import static junit.framework.TestCase.assertTrue;
@@ -52,5 +53,17 @@ public class CalendarUtilsTest {
         CalendarUtils.dump(cal2);
 
         assertEquals(cal1, cal2);
+    }
+
+    @Test
+    public void testcase05_time() {
+        Calendar calendar = Calendar.getInstance();
+        System.out.println(calendar.getTime());
+
+        long dayTime = CalendarUtils.genDate(calendar).getTimeInMillis();
+        long dayDate = CalendarUtils.genTime(calendar);
+
+        System.out.println(new Date(dayTime));
+        System.out.println(new Date(dayDate));
     }
 }

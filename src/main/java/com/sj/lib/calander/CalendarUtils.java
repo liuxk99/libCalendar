@@ -35,4 +35,9 @@ public class CalendarUtils {
         cal.set(year, month, day);
         return cal;
     }
+
+    public static long genTime(Calendar calendar) {
+        Calendar cal = genDate(calendar);
+        return calendar.getTimeInMillis() - cal.getTimeInMillis();
+    }
 }
