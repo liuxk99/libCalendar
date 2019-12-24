@@ -90,4 +90,23 @@ public class DateInfoTest {
         System.out.println(dateInfo.toString());
     }
 
+    @Test
+    public void testcase004_Maps() {
+        HolidayCalendarByGov holidayCalendarByGov = new HolidayCalendarByGov2020();
+        holidayCalendarByGov.adjustCalendar();
+
+        Calendar calendar = CalendarUtils.genDate(2020, 1, 1);
+        Boolean isWorkDay = holidayCalendarByGov.dateInfoMap.get(calendar);
+        assertNotNull(isWorkDay);
+
+        Calendar cal = holidayCalendarByGov.getFirstDay();
+        Calendar endDay = holidayCalendarByGov.getLastDay();
+        endDay.add(Calendar.DAY_OF_YEAR, 1);
+        while (cal.before(endDay)) {
+            DateInfo dateInfo = new DateInfo(cal, holidayCalendarByGov.dateInfoMap.get(cal));
+            System.out.println(dateInfo.toString());
+
+            cal.add(Calendar.DAY_OF_YEAR, 1);
+        }
+    }
 }
