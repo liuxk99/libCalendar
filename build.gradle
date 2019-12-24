@@ -6,8 +6,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
-sourceCompatibility = "6"
-targetCompatibility = "6"
+sourceCompatibility = "7"
+targetCompatibility = "7"
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
