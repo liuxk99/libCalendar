@@ -37,9 +37,8 @@ public class DateDub {
         if (date != null && date != this.date) {
             this.date = (Date) date.clone();
             save();
-
-            notifyObserver();
         }
+        notifyObserver();
     }
 
     public Date getDate() {
