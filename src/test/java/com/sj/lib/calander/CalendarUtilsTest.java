@@ -6,9 +6,7 @@ import org.junit.Test;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Map;
 
-import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 public class CalendarUtilsTest {
