@@ -1,4 +1,10 @@
-package com.sj.lib.calander;
+package com.sj.days;
+
+import com.sj.days.DayWR;
+import com.sj.days.HolidayCalendarByGov;
+import com.sj.days.HolidayCalendarByGov2019;
+import com.sj.days.HolidayCalendarByGov2020;
+import com.sj.time.CalendarUtils;
 
 import org.junit.Test;
 
@@ -8,7 +14,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
 
-public class DateInfoTest {
+public class DayWRTest {
 
     private HolidayCalendarByGov holidayCalendarByGov;
 
@@ -24,7 +30,7 @@ public class DateInfoTest {
 
     @org.junit.Test
     public void toString1() {
-        DateInfo category = new DateInfo(2019, 12, 1, false);
+        DayWR category = new DayWR(2019, 12, 1, false);
         System.out.println(category.toString());
 
     }
@@ -38,23 +44,23 @@ public class DateInfoTest {
             isWorkday = true;
         }
 
-        DateInfo dateInfo = new DateInfo(calendar.get(Calendar.YEAR),
+        DayWR dayWR = new DayWR(calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH) + 1,
                 calendar.get(Calendar.DAY_OF_MONTH), isWorkday);
-        System.out.println(dateInfo.toString());
+        System.out.println(dayWR.toString());
 
         calendar.add(Calendar.DAY_OF_YEAR, 1);
         dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
         if (Calendar.MONDAY <= dayOfWeek && dayOfWeek <= Calendar.FRIDAY) {
             isWorkday = true;
         }
-        dateInfo = new DateInfo(calendar, isWorkday);
-        System.out.println(dateInfo.toString());
+        dayWR = new DayWR(calendar, isWorkday);
+        System.out.println(dayWR.toString());
     }
 
     @Test
     public void testcase_002() throws Exception {
-        List<DateInfo> dateInfoList = new ArrayList<DateInfo>();
+        List<DayWR> dayWRList = new ArrayList<DayWR>();
 
         HolidayCalendarByGov holidayCalendarByGov = new HolidayCalendarByGov2019();
         holidayCalendarByGov.adjustCalendar();
@@ -66,28 +72,28 @@ public class DateInfoTest {
         while (calendar.before(lastDay)) {
             Boolean isWorkDay = holidayCalendarByGov.dateInfoMap.get(calendar);
             if (isWorkDay != null) {
-                dateInfoList.add(new DateInfo(calendar, isWorkDay));
+                dayWRList.add(new DayWR(calendar, isWorkDay));
             } else {
-                dateInfoList.add(new DateInfo(calendar));
+                dayWRList.add(new DayWR(calendar));
             }
             calendar.add(Calendar.DAY_OF_YEAR, 1);
         }
 
-        for (DateInfo dateInfo : dateInfoList) {
-            System.out.println(dateInfo.toString());
+        for (DayWR dayWR : dayWRList) {
+            System.out.println(dayWR.toString());
         }
     }
 
     @Test
     public void testcase_Maps() {
-        Calendar calendar = CalendarUtils.genDate(2019, 1, 1);
+        Calendar calendar = CalendarUtils.getDate(2019, 1, 1);
 //        CalendarUtils.dump(calendar);
 
         Boolean isWorkDay = holidayCalendarByGov.dateInfoMap.get(calendar);
         assertNotNull(isWorkDay);
 
-        DateInfo dateInfo = new DateInfo(calendar, isWorkDay);
-        System.out.println(dateInfo.toString());
+        DayWR dayWR = new DayWR(calendar, isWorkDay);
+        System.out.println(dayWR.toString());
     }
 
     @Test
@@ -95,7 +101,7 @@ public class DateInfoTest {
         HolidayCalendarByGov holidayCalendarByGov = new HolidayCalendarByGov2020();
         holidayCalendarByGov.adjustCalendar();
 
-        Calendar calendar = CalendarUtils.genDate(2020, 1, 1);
+        Calendar calendar = CalendarUtils.getDate(2020, 1, 1);
         Boolean isWorkDay = holidayCalendarByGov.dateInfoMap.get(calendar);
         assertNotNull(isWorkDay);
 
@@ -103,8 +109,8 @@ public class DateInfoTest {
         Calendar endDay = holidayCalendarByGov.getLastDay();
         endDay.add(Calendar.DAY_OF_YEAR, 1);
         while (cal.before(endDay)) {
-            DateInfo dateInfo = new DateInfo(cal, holidayCalendarByGov.dateInfoMap.get(cal));
-            System.out.println(dateInfo.toString());
+            DayWR dayWR = new DayWR(cal, holidayCalendarByGov.dateInfoMap.get(cal));
+            System.out.println(dayWR.toString());
 
             cal.add(Calendar.DAY_OF_YEAR, 1);
         }

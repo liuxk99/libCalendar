@@ -1,4 +1,7 @@
-package com.sj.lib.calander;
+package com.sj.days;
+
+import com.sj.days.HolidayCalendarByGov2019;
+import com.sj.time.CalendarUtils;
 
 import org.junit.Test;
 
@@ -28,7 +31,7 @@ public class HolidayByGovTest {
 
     @Test
     public void testcase_Maps() {
-        Calendar calendar = CalendarUtils.genDate(2019, 1, 1);
+        Calendar calendar = CalendarUtils.getDate(2019, 1, 1);
 //        CalendarUtils.dump(calendar);
 
         Boolean isWorkDay = holidayByGov.dateInfoMap.get(calendar);

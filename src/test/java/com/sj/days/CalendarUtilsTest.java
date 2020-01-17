@@ -1,4 +1,6 @@
-package com.sj.lib.calander;
+package com.sj.days;
+
+import com.sj.time.CalendarUtils;
 
 import org.junit.After;
 import org.junit.Before;
@@ -43,8 +45,8 @@ public class CalendarUtilsTest {
 
     @Test
     public void testcase_genDate() throws Exception {
-        Calendar cal1 = CalendarUtils.genDate(2019, 1, 1);
-        Calendar cal2 = CalendarUtils.genDate(2019, 1, 1);
+        Calendar cal1 = CalendarUtils.getDate(2019, 1, 1);
+        Calendar cal2 = CalendarUtils.getDate(2019, 1, 1);
 //        boolean res = cal1.getTimeInMillis() == cal2.getTimeInMillis();
 //        System.out.println(res);
         CalendarUtils.dump(cal1);
@@ -58,8 +60,8 @@ public class CalendarUtilsTest {
         Calendar calendar = Calendar.getInstance();
         System.out.println(calendar.getTime());
 
-        long dayTime = CalendarUtils.genDate(calendar).getTimeInMillis();
-        long dayDate = CalendarUtils.genTime(calendar);
+        long dayTime = CalendarUtils.getDate(calendar).getTimeInMillis();
+        long dayDate = CalendarUtils.getTime(calendar);
 
         System.out.println(new Date(dayTime));
         System.out.println(new Date(dayDate));

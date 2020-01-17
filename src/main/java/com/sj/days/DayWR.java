@@ -1,14 +1,14 @@
-package com.sj.lib.calander;
+package com.sj.days;
 
 import java.util.Calendar;
 
-public class DateInfo {
-    int year;
-    int month;
-    int day;
+public class DayWR {
+    private int year;
+    private int month;
+    private int day;
 
     // 是否为工作日
-    boolean isWorkday = false;
+    private boolean isWorkday = false;
 
     final static String WORKDAY = "WorkDay";
     final static String RESTDAY = "Rest Day";
@@ -16,21 +16,21 @@ public class DateInfo {
     final static String WORKDAY_NARROW = "W[工]";
     final static String RESTDAY_NARROW = "R[休]";
 
-    public DateInfo(int year, int month, int day, boolean isWorkday) {
+    public DayWR(int year, int month, int day, boolean isWorkday) {
         this.year = year;
         this.month = month;
         this.day = day;
         this.isWorkday = isWorkday;
     }
 
-    public DateInfo(Calendar calendar, boolean isWorkday) {
+    public DayWR(Calendar calendar, boolean isWorkday) {
         this.year = calendar.get(Calendar.YEAR);
         this.month = calendar.get(Calendar.MONTH) + 1;
         this.day = calendar.get(Calendar.DAY_OF_MONTH);
         this.isWorkday = isWorkday;
     }
 
-    public DateInfo(Calendar calendar) {
+    public DayWR(Calendar calendar) {
         this.year = calendar.get(Calendar.YEAR);
         this.month = calendar.get(Calendar.MONTH) + 1;
         this.day = calendar.get(Calendar.DAY_OF_MONTH);
