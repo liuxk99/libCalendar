@@ -2,7 +2,7 @@ apply plugin: 'java-library'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(":libTime")
+    api project(":libTime")
 
     testImplementation 'junit:junit:4.12'
 }
