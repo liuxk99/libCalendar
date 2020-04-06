@@ -29,9 +29,9 @@ public class HolidayCalendarByGov2020 extends HolidayCalendarByGov {
         dateInfoMap.put(CalendarUtils.getDate(2020, 1, 19), true);
 
         // 清明节
-        dateInfoMap.put(CalendarUtils.getDate(2020, 4, 5), true);
-        dateInfoMap.put(CalendarUtils.getDate(2020, 4, 5), true);
-        dateInfoMap.put(CalendarUtils.getDate(2020, 4, 6), true);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 4, 4), false);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 4, 5), false);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 4, 6), false);
 
         // 劳动节
         dateInfoMap.put(CalendarUtils.getDate(2020, 5, 1), false);
