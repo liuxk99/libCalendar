@@ -65,6 +65,27 @@ public class HolidayCalendarByGov2020 extends HolidayCalendarByGov {
         dateInfoMap.put(CalendarUtils.getDate(2020, 9, 27), true);
         dateInfoMap.put(CalendarUtils.getDate(2020, 10, 10), true);
 
+        // 陪产假
+        dateInfoMap.put(CalendarUtils.getDate(2020, 5, 6), false);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 5, 7), false);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 5, 8), false);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 5, 9), false);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 5, 10), false);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 5, 11), false);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 5, 12), false);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 5, 13), false);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 5, 14), false);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 5, 15), false);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 5, 16), false);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 5, 17), false);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 5, 18), false);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 5, 19), false);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 5, 20), false);
+
+        // 年假
+        dateInfoMap.put(CalendarUtils.getDate(2020, 5, 21), false);
+        dateInfoMap.put(CalendarUtils.getDate(2020, 5, 22), false);
+
         Calendar calendar = getFirstDay();
         Calendar lastDay = getLastDay();
         lastDay.add(Calendar.DAY_OF_YEAR, 1);
