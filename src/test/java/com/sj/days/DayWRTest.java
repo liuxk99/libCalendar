@@ -115,4 +115,24 @@ public class DayWRTest {
             cal.add(Calendar.DAY_OF_YEAR, 1);
         }
     }
+
+    @Test
+    public void testcase005_Maps() {
+        HolidayCalendarByGov holidayCalendarByGov = new HolidayCalendarByGov2021();
+        holidayCalendarByGov.adjustCalendar();
+
+        Calendar calendar = CalendarUtils.getDate(2021, 1, 1);
+        Boolean isWorkDay = holidayCalendarByGov.dateInfoMap.get(calendar);
+        assertNotNull(isWorkDay);
+
+        Calendar cal = holidayCalendarByGov.getFirstDay();
+        Calendar endDay = holidayCalendarByGov.getLastDay();
+        endDay.add(Calendar.DAY_OF_YEAR, 1);
+        while (cal.before(endDay)) {
+            DayWR dayWR = new DayWR(cal, holidayCalendarByGov.dateInfoMap.get(cal));
+            System.out.println(dayWR.toString());
+
+            cal.add(Calendar.DAY_OF_YEAR, 1);
+        }
+    }
 }
