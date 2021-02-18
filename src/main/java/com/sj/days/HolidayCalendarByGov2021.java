@@ -14,6 +14,12 @@ public class HolidayCalendarByGov2021 extends HolidayCalendarByGov {
         dateInfoMap.put(CalendarUtils.getDate(2021, 1, 2), false);
         dateInfoMap.put(CalendarUtils.getDate(2021, 1, 3), false);
 
+        // 春节前休假
+        dateInfoMap.put(CalendarUtils.getDate(2021, 2, 7), false);
+        dateInfoMap.put(CalendarUtils.getDate(2021, 2, 8), false);
+        dateInfoMap.put(CalendarUtils.getDate(2021, 2, 9), false);
+        dateInfoMap.put(CalendarUtils.getDate(2021, 2, 10), false);
+
         // 春节
         dateInfoMap.put(CalendarUtils.getDate(2021, 2, 11), false);
         dateInfoMap.put(CalendarUtils.getDate(2021, 2, 12), false);
@@ -24,7 +30,12 @@ public class HolidayCalendarByGov2021 extends HolidayCalendarByGov {
         dateInfoMap.put(CalendarUtils.getDate(2021, 2, 17), false);
         dateInfoMap.put(CalendarUtils.getDate(2021, 2, 7), true);
         dateInfoMap.put(CalendarUtils.getDate(2021, 2, 20), true);
-        
+
+        // 春节后休假
+        dateInfoMap.put(CalendarUtils.getDate(2021, 2, 18), false);
+        dateInfoMap.put(CalendarUtils.getDate(2021, 2, 19), false);
+        dateInfoMap.put(CalendarUtils.getDate(2021, 2, 20), false);
+
         // 清明节
         dateInfoMap.put(CalendarUtils.getDate(2021, 4, 3), false);
         dateInfoMap.put(CalendarUtils.getDate(2021, 4, 4), false);
