@@ -20,4 +20,24 @@ public abstract class HolidayCalendarByGov {
         }
         System.out.println("---");
     }
+
+    void dumpHoliday() {
+        Calendar calendar = getFirstDay();
+        Calendar lastDay = getLastDay();
+        lastDay.add(Calendar.DAY_OF_YEAR, 1);
+
+        while (calendar.before(lastDay)) {
+            Boolean isWorkDay = dateInfoMap.get(calendar);
+            if (isWorkDay == null) {
+                CalendarUtils.dump(calendar);
+                System.out.println("Error: date map is not completed!");
+            } else {
+                if (!isWorkDay){
+                    DayWR dayWR = new DayWR(calendar, false);
+                    System.out.println(dayWR.toString());
+                }
+            }
+            calendar.add(Calendar.DAY_OF_YEAR, 1);
+        }
+    }
 }

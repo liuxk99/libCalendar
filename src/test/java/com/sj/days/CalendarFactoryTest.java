@@ -32,4 +32,11 @@ public class CalendarFactoryTest {
         assertTrue(map.containsKey(firstDay));
         assertTrue(map.containsKey(lastDay));
     }
+
+    @Test
+    public void verify_holiday_year_2023() {
+        HolidayCalendarByGov2023 holidayByGov = new HolidayCalendarByGov2023();
+        holidayByGov.adjustCalendar();
+        holidayByGov.dumpHoliday();
+    }
 }

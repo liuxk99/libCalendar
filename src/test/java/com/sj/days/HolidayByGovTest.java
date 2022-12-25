@@ -11,13 +11,10 @@ import static org.junit.Assert.assertNotNull;
 
 public class HolidayByGovTest {
 
-    private HolidayCalendarByGov2019 holidayByGov;
+    private HolidayCalendarByGov holidayByGov;
 
     @org.junit.Before
     public void setUp() throws Exception {
-        holidayByGov = new HolidayCalendarByGov2019();
-        holidayByGov.adjustCalendar();
-//        holidayByGov.dump();
     }
 
     @org.junit.After
@@ -40,6 +37,8 @@ public class HolidayByGovTest {
 
     @Test
     public void testcase_CalendarByGov() throws Exception {
+        holidayByGov = new HolidayCalendarByGov2023();
+        holidayByGov.adjustCalendar();
         holidayByGov.dump();
     }
 }
