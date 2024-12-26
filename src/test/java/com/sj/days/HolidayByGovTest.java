@@ -28,7 +28,7 @@ public class HolidayByGovTest {
 
     @Test
     public void testcase_Maps() {
-        Calendar calendar = CalendarUtils.getDate(2019, 1, 1);
+        Calendar calendar = CalendarUtils.getDate(2025, 1, 1);
 //        CalendarUtils.dump(calendar);
 
         Boolean isWorkDay = holidayByGov.dateInfoMap.get(calendar);
@@ -37,7 +37,7 @@ public class HolidayByGovTest {
 
     @Test
     public void testcase_CalendarByGov() throws Exception {
-        holidayByGov = new HolidayCalendarByGov2023();
+        holidayByGov = new HolidayCalendarByGov2025();
         holidayByGov.adjustCalendar();
         holidayByGov.dump();
     }
