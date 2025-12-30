@@ -32,6 +32,7 @@ public class CalendarFactory {
         calendarByGovList.add(new HolidayCalendarByGov2023());
         calendarByGovList.add(new HolidayCalendarByGov2024());
         calendarByGovList.add(new HolidayCalendarByGov2025());
+        calendarByGovList.add(new HolidayCalendarByGov2026());
 
         for (HolidayCalendarByGov calendarByGov : calendarByGovList) {
             calendarByGov.adjustCalendar();
